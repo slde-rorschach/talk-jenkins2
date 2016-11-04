@@ -1,0 +1,4 @@
+config.yml
+.vagrant/
+symfony/
+node_modules/

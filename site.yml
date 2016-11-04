@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+    - name: install node packages
+      become: true
+      apt: name={{ item }} update_cache=yes
+      with_items:
+        - nodejs
+        - npm
+
+    - name: link nodejs to node
+      become: true
+      file:
+        src: /usr/bin/nodejs
+        dest: /usr/bin/node
+        state: link
